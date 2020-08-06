@@ -4,16 +4,18 @@
 How do you find the nth fibonacci number?
 """
 
-cache = {}
-
 
 def fib(n):
-    if n <= 1:
-        return n
-    if n not in cache:
-        cache[n] = fib(n - 1) + fib(n - 2)
-    return cache[n]
+    cache = {}
+
+    def fibr(n):
+        if n <= 1:
+            return n
+        if n not in cache:
+            cache[n] = fibr(n - 1) + fibr(n - 2)
+        return cache[n]
+    return fibr(n)
 
 
-for i in range(10000):
+for i in range(200):
     print(f"{i:3}: {fib(i)}")
