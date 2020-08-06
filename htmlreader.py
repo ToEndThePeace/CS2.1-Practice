@@ -26,8 +26,10 @@ while True:
         cur_time = datetime.datetime.now().timestamp()
         diff_time = cur_time - url_index[url].timestamp
 
+        # so I guess this is an "anti-pattern" and should be avoided
         # if diff_time > TIMEOUT_SECONDS:
         #     needs_refresh = True
+        
         needs_refresh = diff_time > TIMEOUT_SECONDS
 
     if needs_refresh:
