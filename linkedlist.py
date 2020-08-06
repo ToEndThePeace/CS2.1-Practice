@@ -15,3 +15,17 @@ class LinkedList:
                 return cur
             cur = cur.next
         return None
+
+    def prepend(self, node):
+        node.next = self.head
+        self.head = node
+
+    def append(self, node):
+        if not self.head:
+            # add node tp a zero-length list
+            self.prepend(node)
+        else:
+            current = self.head
+            while current is not None:
+                current = current.next
+            current.next = node
